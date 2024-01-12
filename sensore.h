@@ -2,6 +2,10 @@
 #define SENSORE_H
 
 #include<string>
+#include"vector"
+#include "datosensore.h"
+
+using std::vector;
 using namespace std;
 
 class Sensore
@@ -9,11 +13,13 @@ class Sensore
 private:
     string id;
     string descrizione;
-
+    vector<DatoSensore *> datiRilevati;
 public:
-    Sensore();
+    Sensore(const string&,const string&);
+    vector<DatoSensore *> getDatiRilevati() const;
+    void rilevaDato(DatoSensore *);
     virtual ~Sensore() = default;
-    virtual int simulazione() = 0; //TODO cambiare int con tipo cazzo
+    virtual vector<DatoSensore *> simulazione() = 0;
 };
 
 #endif // SENSORE_H

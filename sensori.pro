@@ -10,16 +10,22 @@ CONFIG += c++17
 
 SOURCES += \
     datosensore.cpp \
+    datosensoreinquinante.cpp \
+    datosensoretemperatura.cpp \
     inquinante.cpp \
     main.cpp \
     mainwindow.cpp \
-    sensore.cpp
+    sensore.cpp \
+    sensoretemperatura.cpp
 
 HEADERS += \
     datosensore.h \
+    datosensoreinquinante.h \
+    datosensoretemperatura.h \
     inquinante.h \
     mainwindow.h \
-    sensore.h
+    sensore.h \
+    sensoretemperatura.h
 
 # Default rules for deployment.
 qnx: target.path = /tmp/$${TARGET}/bin

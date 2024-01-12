@@ -11,7 +11,8 @@ private:
 public:
     DatoSensore(const time_t&);
     virtual ~DatoSensore() = default;
-    virtual DatoSensore * rilevaDato() = 0;
+    time_t getOrarioRilevazione() const;
+    //todo get time, forse tostring
 };
 
 #endif // DATOSENSORE_H
