@@ -12,7 +12,7 @@ class DatoSensoreInquinante : public DatoSensore
 private:
     pair<Inquinante,double> valoreInquinante;
 public:
-    DatoSensoreInquinante(const pair<Inquinante,double>&,const time_t&);
+    DatoSensoreInquinante(const pair<Inquinante,double>&,const time_t&); //cambiare in dataora
     pair<Inquinante,double> getValoreInquinante() const;
 };
 

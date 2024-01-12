@@ -8,7 +8,7 @@ class DatoSensoreTemperatura : public DatoSensore
 private:
     double temperatura;
 public:
-    DatoSensoreTemperatura(const double&,const time_t&);
+    DatoSensoreTemperatura(const double&,const time_t&); //cambiare in dataora
     double getTemperatura() const;
 };
 

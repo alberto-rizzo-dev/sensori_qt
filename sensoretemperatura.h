@@ -9,10 +9,12 @@ class SensoreTemperatura : public Sensore
 private:
     double minimaRilevabile;
     double massimaRilevabile;
+
 public:
-    SensoreTemperatura(const double&,const double&,const string&,const string&);
+    SensoreTemperatura(double,double,const string&,const string&);
     ~SensoreTemperatura() = default;
     double getTemperaturaAttuale() const;
+    void simulazione();
 };
 
 #endif // SENSORETEMPERATURA_H
