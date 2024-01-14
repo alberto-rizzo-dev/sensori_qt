@@ -10,21 +10,23 @@ CONFIG += c++17
 
 SOURCES += \
     datosensore.cpp \
-    datosensoreinquinante.cpp \
+    datosensorepolveri.cpp \
     datosensoretemperatura.cpp \
-    inquinante.cpp \
     main.cpp \
     mainwindow.cpp \
+    polveresottile.cpp \
     sensore.cpp \
+    sensorepolverisottili.cpp \
     sensoretemperatura.cpp
 
 HEADERS += \
     datosensore.h \
-    datosensoreinquinante.h \
+    datosensorepolveri.h \
     datosensoretemperatura.h \
-    inquinante.h \
     mainwindow.h \
+    polveresottile.h \
     sensore.h \
+    sensorepolverisottili.h \
     sensoretemperatura.h
 
 # Default rules for deployment.
