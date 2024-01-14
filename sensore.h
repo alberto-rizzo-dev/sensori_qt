@@ -19,6 +19,7 @@ protected:
     static double randomDouble(short,short); //leggere negli appunti se serve const, penso di no
 public:
     Sensore(const string&,const string&);
+    Sensore(const Sensore&);
     string getId() const;
     string getDescrizione() const;
     vector<DatoSensore *> getDatiRilevati() const;
@@ -28,6 +29,8 @@ public:
     virtual ~Sensore();
     virtual void simulazione() = 0;
     virtual string getName() const =0;
+
+    Sensore& operator = (const Sensore&);
 };
 
 #endif // SENSORE_H

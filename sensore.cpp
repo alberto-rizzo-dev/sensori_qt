@@ -4,6 +4,11 @@
 Sensore::Sensore(const string&i,const string& desc)
     : id(i) , descrizione(desc){}
 
+Sensore::Sensore(const Sensore &s) : Sensore(s.id,s.descrizione){
+    for(auto d : s.datiRilevati)
+        datiRilevati.push_back(new DatoSensore(*d));
+}
+
 Sensore::~Sensore(){
     for(auto dato : datiRilevati)
         delete dato;
@@ -41,3 +46,17 @@ double Sensore::randomDouble(short min,short max){
 
     return random_double;
 }
+
+Sensore& Sensore::operator = (const Sensore& s){
+    for(auto dato : datiRilevati)
+        delete dato;
+
+    id=s.id;
+    descrizione=s.descrizione;
+
+    for(auto d : s.datiRilevati)
+        datiRilevati.push_back(new DatoSensore(*d));
+
+    return *this;
+}
+
