@@ -12,6 +12,7 @@ public:
     SensorePolveriSottili(const vector<PolvereSottile>&,const string &, const string&);
     vector<PolvereSottile> getPolveriRilevabili() const;
     void simulazione();
+    string getName() const;
 };
 
 #endif // SENSOREPOLVERISOTTILI_H

@@ -12,6 +12,7 @@ SOURCES += \
     datosensore.cpp \
     datosensorepolveri.cpp \
     datosensoretemperatura.cpp \
+    listasensori.cpp \
     main.cpp \
     mainwindow.cpp \
     polveresottile.cpp \
@@ -23,6 +24,7 @@ HEADERS += \
     datosensore.h \
     datosensorepolveri.h \
     datosensoretemperatura.h \
+    listasensori.h \
     mainwindow.h \
     polveresottile.h \
     sensore.h \

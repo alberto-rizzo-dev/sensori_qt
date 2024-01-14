@@ -13,7 +13,7 @@ private:
     PolvereSottile polvere;
     double valorePolvere;
 public:
-    DatoSensoreInquinante(const PolvereSottile&,double,const time_t&); //cambiare in dataora
+    DatoSensorePolveri(const PolvereSottile&,double,const time_t&); //cambiare in dataora
     double getValorePolvere() const;
     PolvereSottile getPolvere() const;
 };

@@ -4,8 +4,8 @@ SensoreTemperatura::SensoreTemperatura(double min,double max,const string &id, c
     : Sensore(id,desc) , minimaRilevabile(min) , massimaRilevabile(max) {}
 
 void SensoreTemperatura::simulazione(){
-    if(!datiRilevati.empty())
-        datiRilevati.clear();
+    if(!Sensore::getDatiRilevati().empty())
+        Sensore::reset();
 
     time_t oraCorrente = time(NULL);
 
@@ -13,4 +13,8 @@ void SensoreTemperatura::simulazione(){
         Sensore::rilevaDato(new DatoSensoreTemperatura(Sensore::randomDouble(minimaRilevabile,massimaRilevabile),oraCorrente));
         oraCorrente -=1440;
     }
+}
+
+string SensoreTemperatura::getName() const {
+    return "temp-"+Sensore::getId();
 }

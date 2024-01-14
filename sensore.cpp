@@ -4,12 +4,31 @@
 Sensore::Sensore(const string&i,const string& desc)
     : id(i) , descrizione(desc){}
 
+Sensore::~Sensore(){
+    for(auto dato : datiRilevati)
+        delete dato;
+}
+
+string Sensore::getId() const{
+    return id;
+}
+
+string Sensore::getDescrizione() const{
+    return descrizione;
+}
+
 vector<DatoSensore *> Sensore::getDatiRilevati() const{
     return datiRilevati;
 }
 
 void Sensore::rilevaDato(DatoSensore * dato) {
     datiRilevati.push_back(dato);
+}
+
+void Sensore::reset(){
+    for(auto dato : datiRilevati)
+        delete dato;
+    datiRilevati.clear();
 }
 
 double Sensore::randomDouble(short min,short max){

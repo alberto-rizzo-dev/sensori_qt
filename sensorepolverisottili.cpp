@@ -8,12 +8,17 @@ vector<PolvereSottile> SensorePolveriSottili::getPolveriRilevabili() const{
 }
 
 void SensorePolveriSottili::simulazione(){
-    if(!Sensore::datiRilevati.empty())
-        Sensore::datiRilevati.clear();
+    if(!Sensore::getDatiRilevati().empty())
+        Sensore::reset();
 
     time_t oraCorrente = time(NULL);
 
     for(auto polvere : polveriRilevabili){
-        Sensore::rilevaDato(new DatoSensorePolveri(polvere,Sensore::randomDouble(minimaRilevabile,massimaRilevabile),oraCorrente));
+        Sensore::rilevaDato(new DatoSensorePolveri(polvere,Sensore::randomDouble(0,100),oraCorrente));
     }
 }
+
+string SensorePolveriSottili::getName() const{
+    return "polv-"+Sensore::getId();
+}
+

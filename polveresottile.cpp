@@ -1,6 +1,6 @@
-#include "polveresottile.h".h"
+#include "polveresottile.h"
 
-PolvereSottile::Inquinante(const string& i,const string& n,const string& desc)
+PolvereSottile::PolvereSottile(const string& i,const string& n,const string& desc)
     : id(i) , nome(n) , descrizione(desc){}
 
 string PolvereSottile::getId() const{
