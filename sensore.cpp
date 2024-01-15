@@ -12,18 +12,6 @@ string Sensore::getDescrizione() const{
     return descrizione;
 }
 
-vector<DatoSensore> Sensore::getDatiRilevati() const{
-    return datiRilevati;
-}
-
-void Sensore::rilevaDato(const DatoSensore& dato) {
-    datiRilevati.push_back(dato);
-}
-
-void Sensore::reset(){
-    datiRilevati.clear();
-}
-
 double Sensore::randomDouble(short min,short max){
     std::random_device rd;
     std::mt19937 gen(rd());

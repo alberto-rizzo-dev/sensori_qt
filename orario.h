@@ -1,21 +1,17 @@
 #ifndef ORARIO_H
 #define ORARIO_H
-#include <iostream>
 
+#include <string>
 using std::string;
-using std::ostream;
 
-class Orario
+class Orario //piccola classe di appoggio per convertire time_t in stringa ELIMINARE E METTERE NELLA VITA I DUE METODI
 {
+private:
+    time_t dataOra;
 public:
-    Orario();
-    Orario(short,short);
-    short getOre() const;
-    short getMinuti() const;
-    string toString() const;
-protected:
-    short ore;
-    short minuti;
+    Orario(const time_t&);
+    string getOrario() const;
+    string getData() const;
 };
 
 #endif // ORARIO_H

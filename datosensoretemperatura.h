@@ -1,12 +1,13 @@
 #ifndef DATOSENSORETEMPERATURA_H
 #define DATOSENSORETEMPERATURA_H
 
-#include "datosensore.h"
+#include <ctime>
 
-class DatoSensoreTemperatura : public DatoSensore
+class DatoSensoreTemperatura
 {
 private:
     double temperatura;
+    time_t dataoraRilevazione;
 public:
     DatoSensoreTemperatura(const double&,const time_t&); //cambiare in dataora
     double getTemperatura() const;

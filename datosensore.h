@@ -12,7 +12,7 @@ private:
     time_t dataoraRilevazione;
 public:
     DatoSensore(const time_t&); //cambiare in dataora
-    virtual ~DatoSensore() = default;
+    virtual ~DatoSensore() = 0;
     string getOrarioRilevazione() const;
     string getDataRilevazione() const;
 };

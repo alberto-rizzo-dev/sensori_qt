@@ -10,3 +10,8 @@ double DatoSensorePolveri::getValorePolvere() const{
 PolvereSottile DatoSensorePolveri::getPolvere() const{
     return polvere;
 }
+
+time_t DatoSensorePolveri::getDataRilevazione() const{
+
+}
+
