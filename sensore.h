@@ -14,23 +14,21 @@ class Sensore
 private:
     string id;
     string descrizione;
-    vector<DatoSensore *> datiRilevati;
+    vector<DatoSensore> datiRilevati;
 protected:
     static double randomDouble(short,short); //leggere negli appunti se serve const, penso di no
 public:
     Sensore(const string&,const string&);
-    Sensore(const Sensore&);
     string getId() const;
     string getDescrizione() const;
-    vector<DatoSensore *> getDatiRilevati() const;
-    void rilevaDato(DatoSensore *);
+    vector<DatoSensore> getDatiRilevati() const;
+    void rilevaDato(const DatoSensore&);
     void reset();
 
-    virtual ~Sensore();
+    virtual ~Sensore() = default;
     virtual void simulazione() = 0;
     virtual string getName() const =0;
-
-    Sensore& operator = (const Sensore&);
+    virtual Sensore *clone() const =0;
 };
 
 #endif // SENSORE_H

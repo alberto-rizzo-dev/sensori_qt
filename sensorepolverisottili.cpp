@@ -14,11 +14,17 @@ void SensorePolveriSottili::simulazione(){
     time_t oraCorrente = time(NULL);
 
     for(auto polvere : polveriRilevabili){
-        Sensore::rilevaDato(new DatoSensorePolveri(polvere,Sensore::randomDouble(0,100),oraCorrente));
+        Sensore::rilevaDato(DatoSensorePolveri(polvere,Sensore::randomDouble(0,100),oraCorrente));
     }
+}
+
+SensorePolveriSottili * SensorePolveriSottili::clone() const{
+    return new SensorePolveriSottili(*this);
 }
 
 string SensorePolveriSottili::getName() const{
     return "polv-"+Sensore::getId();
 }
+
+
 

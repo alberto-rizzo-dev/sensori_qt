@@ -15,6 +15,7 @@ public:
     double getTemperaturaAttuale() const;
     void simulazione();
     string getName() const;
+    SensoreTemperatura * clone() const;
 };
 
 #endif // SENSORETEMPERATURA_H

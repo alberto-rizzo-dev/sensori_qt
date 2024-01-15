@@ -15,7 +15,6 @@ public:
     virtual ~DatoSensore() = default;
     string getOrarioRilevazione() const;
     string getDataRilevazione() const;
-    //todo get time, forse tostring
 };
 
 #endif // DATOSENSORE_H

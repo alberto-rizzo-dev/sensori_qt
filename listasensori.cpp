@@ -4,9 +4,19 @@
 ListaSensori::ListaSensori(const vector<Sensore*>& sens)
     : sensori(sens) {}
 
-ListaSensori::~ListaSensori(){
+ListaSensori::ListaSensori(const ListaSensori& ls){
+    for(auto s : ls.sensori)
+        sensori.push_back(s->clone());
+}
+
+ListaSensori& ListaSensori::operator = (const ListaSensori& ls){
+    if(this!=&ls) return *this;
     for(auto s : sensori)
         delete s;
+    sensori.clear();
+    for(auto s : ls.sensori)
+        sensori.push_back(s->clone());
+    return *this;
 }
 
 bool ListaSensori::idDisponibile(const string& id) const{
@@ -24,10 +34,9 @@ bool ListaSensori::aggiungiSensore(Sensore *s){
     return true;
 }
 
-vector<const Sensore*> ListaSensori::trovaSensori(const string& s) const{
+vector<Sensore*> ListaSensori::trovaSensori(const string& s){
     //ritorna una lista di tutti i sensori che contengono la stringa 's' all'interno del nome
-    bool eliminaSensore(const Sensore&);
-    vector<const Sensore*> trovati;
+    vector<Sensore*> trovati;
     for(auto i = sensori.begin();i!=sensori.end();i++)
         if(((*i)->getName()).find(s) != std::string::npos) //se s è contenuta nel nome del sensore
             trovati.push_back(*i);
@@ -46,9 +55,10 @@ bool ListaSensori::eliminaSensore(Sensore * s){
 bool ListaSensori::modificaSensore(Sensore * vecchio,Sensore * nuovo){
     /*elimina il sensore nella lista che ha lo stesso indirizzo del sensore puntato da vecchio
       poi viene inserito un nuovo puntatore nella lista contenente i valori modificati*/
-    //se non viene trovato nessun sensore oppure i tipi dinamici di vecchio e nuovo non coincidono ritorna false
+    //se non viene trovato nessun sensore oppure ritorna false
+    //nessun controllo sui tipi dinamici -> hanno lo stesso indirizzo in memoria
     auto it = std::find_if(sensori.begin(), sensori.end(), [vecchio](Sensore * sensore) {return sensore == vecchio;});
-    if(it==sensori.end() || typeid(*nuovo) == typeid(*vecchio)) return false;
+    if(it==sensori.end()) return false;
     *it=nuovo;
     delete vecchio;
     return true;

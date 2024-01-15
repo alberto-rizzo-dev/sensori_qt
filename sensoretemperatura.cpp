@@ -10,9 +10,13 @@ void SensoreTemperatura::simulazione(){
     time_t oraCorrente = time(NULL);
 
     for(short i=0; i<12;i++){
-        Sensore::rilevaDato(new DatoSensoreTemperatura(Sensore::randomDouble(minimaRilevabile,massimaRilevabile),oraCorrente));
+        Sensore::rilevaDato(DatoSensoreTemperatura(Sensore::randomDouble(minimaRilevabile,massimaRilevabile),oraCorrente));
         oraCorrente -=1440;
     }
+}
+
+SensoreTemperatura * SensoreTemperatura::clone() const{
+    return new SensoreTemperatura(*this);
 }
 
 string SensoreTemperatura::getName() const {
