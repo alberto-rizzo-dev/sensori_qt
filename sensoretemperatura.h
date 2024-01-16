@@ -17,6 +17,7 @@ private:
     };
     double minimaRilevabile;
     double massimaRilevabile;
+    vector<DatoSensoreTemperatura> temperatureRilevate;
 public:
     SensoreTemperatura(double,double,const string&,const string&);
     ~SensoreTemperatura() = default;
@@ -25,6 +26,8 @@ public:
     string getName() const;
     SensoreTemperatura * clone() const;
     void reset();
+    string toString() const; //per test, rimuovere probabilmente
+
 };
 
 #endif // SENSORETEMPERATURA_H

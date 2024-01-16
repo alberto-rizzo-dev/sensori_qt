@@ -21,6 +21,9 @@ public:
     bool eliminaSensore(Sensore *);
     bool modificaSensore(Sensore *,Sensore *);
     vector<Sensore*> trovaSensori(const string&); //non const: i sensori ritornati potrebbero essere modificati
+
+    //test
+    void stampa() const;
 };
 
 #endif // LISTASENSORI_H

@@ -12,7 +12,6 @@ SOURCES += \
     listasensori.cpp \
     main.cpp \
     mainwindow.cpp \
-    orario.cpp \
     polveresottile.cpp \
     sensore.cpp \
     sensorepolverisottili.cpp \
@@ -21,7 +20,6 @@ SOURCES += \
 HEADERS += \
     listasensori.h \
     mainwindow.h \
-    orario.h \
     polveresottile.h \
     sensore.h \
     sensorepolverisottili.h \

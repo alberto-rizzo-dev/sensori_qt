@@ -21,6 +21,7 @@ private:
         PolvereSottile getPolvere() const;
     };
     vector<PolvereSottile> polveriRilevabili;
+    vector<DatoSensorePolveri> polveriRilevate;
 public:
     SensorePolveriSottili(const vector<PolvereSottile>&,const string &, const string&);
     vector<PolvereSottile> getPolveriRilevabili() const;
@@ -28,6 +29,8 @@ public:
     void reset();
     string getName() const;
     SensorePolveriSottili * clone() const;
+    string toString() const; //per test, rimuovere probabilmente
+
 };
 
 #endif // SENSOREPOLVERISOTTILI_H

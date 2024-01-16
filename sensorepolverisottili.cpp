@@ -4,7 +4,7 @@
 SensorePolveriSottili::DatoSensorePolveri::DatoSensorePolveri(const PolvereSottile&p,double val,const time_t& orarioRilevazione)
     : dataRilevazione(orarioRilevazione) , polvere(p) ,valorePolvere(val) {}
 
-double DatoSensorePolveri::getValorePolvere() const{
+double SensorePolveriSottili::DatoSensorePolveri::getValorePolvere() const{
     return valorePolvere;
 }
 
@@ -27,15 +27,14 @@ vector<PolvereSottile> SensorePolveriSottili::getPolveriRilevabili() const{
 
 void SensorePolveriSottili::simulazione(){
     reset();
-    time_t oraCorrente = time(NULL);
-
     for(auto polvere : polveriRilevabili){
-        Sensore::rilevaDato(DatoSensorePolveri(polvere,Sensore::randomDouble(0,100),oraCorrente));
+        auto d = DatoSensorePolveri(polvere,Sensore::randomDouble(0,100),time(NULL));
+        polveriRilevate.push_back(d);
     }
 }
 
 void SensorePolveriSottili::reset(){
-    //svuota la lista
+    polveriRilevate.clear();
 }
 
 SensorePolveriSottili * SensorePolveriSottili::clone() const{
@@ -45,6 +44,17 @@ SensorePolveriSottili * SensorePolveriSottili::clone() const{
 string SensorePolveriSottili::getName() const{
     return "polv-"+Sensore::getId();
 }
+
+string SensorePolveriSottili::toString() const{
+    if(polveriRilevate.empty())
+        return "\nvuota";
+    string s="\nSENSORE: "+getId()+"\n";
+    for(auto p : polveriRilevate){
+       s+=p.getPolvere().getNome()+": "+std::to_string(p.getValorePolvere())+"\n";
+    }
+    return s;
+}
+
 
 
 

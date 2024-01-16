@@ -20,13 +20,13 @@ void SensoreTemperatura::simulazione(){
     time_t oraCorrente = time(NULL);
 
     for(short i=0; i<12;i++){
-        Sensore::rilevaDato(DatoSensoreTemperatura(Sensore::randomDouble(minimaRilevabile,massimaRilevabile),oraCorrente));
+        temperatureRilevate.push_back(DatoSensoreTemperatura(Sensore::randomDouble(minimaRilevabile,massimaRilevabile),oraCorrente));
         oraCorrente -=1440;
     }
 }
 
 void SensoreTemperatura::reset(){
-    //svuota la lista
+    temperatureRilevate.clear();
 }
 
 SensoreTemperatura * SensoreTemperatura::clone() const{
@@ -36,6 +36,19 @@ SensoreTemperatura * SensoreTemperatura::clone() const{
 string SensoreTemperatura::getName() const {
     return "temp-"+Sensore::getId();
 }
+
+string SensoreTemperatura::toString() const { //per test, rimuovere probabilmente
+    if(temperatureRilevate.empty())
+        return "vuota";
+    string s="SENSORE: "+getId()+"\n";
+    short tmp=1;
+    for(auto t : temperatureRilevate){
+        s+=std::to_string(tmp)+":"+std::to_string(t.getTemperatura())+"\n";
+        tmp++;
+    }
+    return s;
+}
+
 
 /* AGGIUNGERE ALLA VIEW
 

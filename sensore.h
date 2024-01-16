@@ -23,6 +23,7 @@ public:
 
     virtual void simulazione() = 0;
     virtual void reset() = 0;
+    virtual string toString() const = 0; //per test, rimuovere probabilmente
     virtual string getName() const =0;
     virtual Sensore *clone() const =0;
 };
